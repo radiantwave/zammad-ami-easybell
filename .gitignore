@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+
+# Aufzeichnungen enthalten echte Rufnummern
+discover.log
+*.log
+!fixtures/*.log

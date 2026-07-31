@@ -1,0 +1,36 @@
+{
+	"name": "zammad-ami-easybell",
+	"version": "0.1.0",
+	"description": "Brücke zwischen dem Asterisk Manager Interface einer Cloud-Telefonanlage und Zammads CTI-Schnittstelle",
+	"type": "module",
+	"engines": {
+		"node": ">=22"
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"start": "node dist/index.js",
+		"dev": "node --watch --experimental-strip-types src/index.ts",
+		"fake:ami": "node --experimental-strip-types tools/fake-ami.ts",
+		"fake:zammad": "node --experimental-strip-types tools/fake-zammad.ts",
+		"lint": "prettier --check . && tsc",
+		"format": "prettier --write ."
+	},
+	"devDependencies": {
+		"@types/node": "^24.0.0",
+		"prettier": "^3.4.2",
+		"typescript": "^5.7.0"
+	},
+	"keywords": [
+		"zammad",
+		"cti",
+		"asterisk",
+		"ami",
+		"easybell",
+		"telefonanlage"
+	],
+	"author": "radiantwave",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/radiantwave/zammad-ami-easybell.git"
+	}
+}

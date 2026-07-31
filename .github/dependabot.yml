@@ -1,0 +1,17 @@
+version: 2
+updates:
+  # Hält die auf Commit-SHA gepinnten GitHub-Actions aktuell (wöchentlich).
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: ci
+
+  # Das Projekt hat nur Entwicklungsabhängigkeiten (TypeScript, Prettier).
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: chore
