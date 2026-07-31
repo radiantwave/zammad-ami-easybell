@@ -22,12 +22,10 @@ const LISTEN_PORT = Number(process.env.LISTEN_PORT ?? 5039);
 const UPSTREAM_HOST = process.env.UPSTREAM_HOST ?? 'jarvis.easybell.de';
 const UPSTREAM_PORT = Number(process.env.UPSTREAM_PORT ?? 5039);
 
-function show(direction: string, data: Buffer): void {
-	const text = data
-		.toString('utf8')
-		.replace(/^(Secret:\s*).*$/gim, '$1<maskiert>')
-		.replace(/\r\n/g, '\\r\\n\n');
-	console.log(`\n──── ${direction} (${data.length} B) ────\n${text}`);
+function show(direction: string, data: string | Buffer): void {
+	const raw = typeof data === 'string' ? data : data.toString('utf8');
+	const text = raw.replace(/^(Secret:\s*).*$/gim, '$1<maskiert>').replace(/\r\n/g, '\\r\\n\n');
+	console.log(`\n──── ${direction} (${Buffer.byteLength(raw)} B) ────\n${text}`);
 }
 
 createServer((client) => {
